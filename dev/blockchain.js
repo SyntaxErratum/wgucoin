@@ -21,7 +21,7 @@ Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash) {
         hash: hash,
         previousBlockHash: previousBlockHash
     };
-
+    
     this.pendingTransactions = [];
     this.chain.push(newBlock);
     return newBlock;
