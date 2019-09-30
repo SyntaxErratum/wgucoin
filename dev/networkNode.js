@@ -1,3 +1,12 @@
+// TODO - Build a wallet
+// TODO - Ongoing mining function
+// TODO - Dynamically set difficulty based on hash power (proofOfWork)
+// TODO - More complex consensus algorithm
+// TODO - Pass in an array of for new node creation
+// TODO - Automatically register node download blockchain upon node creation
+// TODO - Create a function to consolidate broadcasts to nodes and replace duplicate forEach loops
+// TODO - Verify that an address has the correct amount before accepting a transaction into pending
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -162,6 +171,7 @@ app.post('/transaction/broadcast', function(req, res) {
     })
 });
 
+//Used to find consensus among nodes for which blockchain is valid based on longest chain
 app.get('/consensus', function(req, res) {
     const requestPromises = [];
     wgucoin.networkNodes.forEach(networkNodeUrl => {
