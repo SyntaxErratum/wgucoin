@@ -110,6 +110,7 @@ app.post('/receive-new-block', function (req, res) {
 });
 
 // This is the endpoint used to register a node with the network (Postman)
+// Expected payload: { "newNodeUrl": "http://server:port" }
 app.post('/register-and-broadcast-node', function(req, res) {
     const newNodeUrl = req.body.newNodeUrl;
     // If the node is not in the array of networkNodes then add it
@@ -163,6 +164,7 @@ app.post('/register-nodes-bulk', function(req, res) {
 });
 
 // This is the endpoint used for submitting a transaction to the network (Postman)
+// Expected payload: { "amount": Integer, "sender": "Address", "recipient": "Address" }
 app.post('/transaction/broadcast', function(req, res) {
     const newTransaction = wgucoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
     wgucoin.addTransactionToPendingTransactions(newTransaction);
